@@ -2,7 +2,11 @@
 
 Static site for the GrowthLock Cyber Monday partner promo. Sign-ups close **Dec 7, 2026 at 11:59 PM CT**, and promo rates last 90 days from sign-up.
 
+**Live domain:** `https://bf.growthlock.com` (each page at `/page-name.html`; every page has its canonical URL and social share tags set to this domain).
+
 No build step: plain HTML, CSS and JavaScript. Deploy the whole folder.
+
+**Email templates** for the GHL workflows are in [`emails/`](emails/README.md). They're for pasting into GHL, not part of the site. Leave the folder out of the deploy if you don't want it public.
 
 ## Pages
 

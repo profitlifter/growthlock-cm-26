@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowthLock CM26 Email Designs</title>
+<style>
+  * { box-sizing:border-box; } body { margin:0; font-family:Inter,Helvetica,Arial,sans-serif; background:#eef2f7; color:#0f172a; }
+  .app { display:grid; grid-template-columns:320px 1fr; height:100vh; }
+  aside { background:#0b1f3a; color:#fff; overflow:auto; padding:20px 14px; }
+  aside h1 { font-size:16px; margin:4px 8px 4px; } aside p { font-size:12px; color:#9fb0c8; margin:0 8px 16px; }
+  ul { list-style:none; margin:0; padding:0; }
+  li a { display:flex; gap:10px; padding:9px 10px; border-radius:8px; color:#dbe4f0; text-decoration:none; font-size:13px; line-height:18px; }
+  li a b { min-width:34px; color:#05e432; } li a:hover { background:rgba(255,255,255,.07); } li a.on { background:rgba(5,228,50,.16); color:#fff; }
+  main { overflow:auto; padding:20px; }
+  .meta { background:#fff; border-radius:12px; padding:14px 18px; margin:0 auto 14px; max-width:680px; font-size:14px; }
+  .meta div { padding:2px 0; } .meta span { color:#5b6b82; display:inline-block; width:72px; }
+  .bar { display:flex; gap:8px; max-width:680px; margin:0 auto 12px; }
+  .bar button { border:1px solid #c9d3e0; background:#fff; border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; }
+  .bar button.on { background:#0b1f3a; color:#fff; border-color:#0b1f3a; }
+  .frame { margin:0 auto; background:#eef2f7; transition:width .2s; }
+  iframe { width:100%; border:0; display:block; }
+  @media (max-width:800px) { .app { grid-template-columns:1fr; height:auto; } aside { max-height:40vh; } }
+</style></head>
+<body><div class="app">
+<aside><h1>GrowthLock CM26 emails</h1><p>19 HTML emails for the GHL workflows. Pick one to preview.</p><ul id="list"><li><a href="#L1" data-file="L1.html"><b>L1</b><span>You&#x27;re in early, Keith</span></a></li><li><a href="#L2" data-file="L2.html"><b>L2</b><span>Monday, partner rates go to the top</span></a></li><li><a href="#L3" data-file="L3.html"><b>L3</b><span>It&#x27;s live: top-tier commissions for 90 days</span></a></li><li><a href="#L4" data-file="L4.html"><b>L4</b><span>Who in your network needs funding?</span></a></li><li><a href="#L5" data-file="L5.html"><b>L5</b><span>The 50% tier, without the climb</span></a></li><li><a href="#L6" data-file="L6.html"><b>L6</b><span>24 hours left at the top tier</span></a></li><li><a href="#L7" data-file="L7.html"><b>L7</b><span>Last call: offers end tonight</span></a></li><li><a href="#S1" data-file="S1.html"><b>S1</b><span>You&#x27;re in. Here&#x27;s your partner link</span></a></li><li><a href="#S2" data-file="S2.html"><b>S2</b><span>Here&#x27;s what 50% looks like</span></a></li><li><a href="#S3" data-file="S3.html"><b>S3</b><span>Want to talk it through?</span></a></li><li><a href="#S4" data-file="S4.html"><b>S4</b><span>Last chance to upgrade at 50%</span></a></li><li><a href="#P1" data-file="P1.html"><b>P1</b><span>Welcome, Premier Partner</span></a></li><li><a href="#P2" data-file="P2.html"><b>P2</b><span>Your 15% ad campaign perk</span></a></li><li><a href="#A1" data-file="A1.html"><b>A1</b><span>Your Premier spot is still open</span></a></li><li><a href="#A2" data-file="A2.html"><b>A2</b><span>Questions? Talk to a partner consultant</span></a></li><li><a href="#C1" data-file="C1.html"><b>C1</b><span>Your partner call is booked</span></a></li><li><a href="#D75" data-file="D75.html"><b>D75</b><span>15 days left at your top tier</span></a></li><li><a href="#D90" data-file="D90.html"><b>D90</b><span>Your 90 days are up: here&#x27;s your tier</span></a></li><li><a href="#M1" data-file="M1.html"><b>M1</b><span>The Cyber Monday rates closed, but the door&#x27;s open</span></a></li></ul></aside>
+<main>
+  <div class="meta"><div><span>Workflow</span><b id="wf"></b></div><div><span>Subject</span><b id="sub"></b></div><div><span>Preview</span><b id="pre"></b></div><div><span>File</span><code id="file"></code></div></div>
+  <div class="bar"><button data-w="680" class="on">Desktop</button><button data-w="375">Mobile</button></div>
+  <div class="frame" id="frame" style="width:680px"><iframe id="view" title="Email preview"></iframe></div>
+</main></div>
+<script>
+  var DATA = [{"code": "L1", "file": "L1.html", "subject": "You're in early, {{contact.first_name}}", "preview": "Top-tier partner rates, before anyone else."}, {"code": "L2", "file": "L2.html", "subject": "Monday, partner rates go to the top", "preview": "Mark your calendar for Cyber Monday."}, {"code": "L3", "file": "L3.html", "subject": "It's live: top-tier commissions for 90 days", "preview": "Three Cyber Monday offers for partners. Ends Dec 7."}, {"code": "L4", "file": "L4.html", "subject": "Who in your network needs funding?", "preview": "The easiest referral you'll make this year."}, {"code": "L5", "file": "L5.html", "subject": "The 50% tier, without the climb", "preview": "Premier Partners start at the top through Dec 7."}, {"code": "L6", "file": "L6.html", "subject": "24 hours left at the top tier", "preview": "Cyber Monday partner rates end tomorrow night."}, {"code": "L7", "file": "L7.html", "subject": "Last call: offers end tonight", "preview": "Midnight CT. After that, standard tiers."}, {"code": "S1", "file": "S1.html", "subject": "You're in. Here's your partner link", "preview": "Your 35% rate is locked for 90 days."}, {"code": "S2", "file": "S2.html", "subject": "Here's what 50% looks like", "preview": "Same deals, 15 more points of commission."}, {"code": "S3", "file": "S3.html", "subject": "Want to talk it through?", "preview": "15 minutes with a partner consultant."}, {"code": "S4", "file": "S4.html", "subject": "Last chance to upgrade at 50%", "preview": "The Premier offer closes at midnight."}, {"code": "P1", "file": "P1.html", "subject": "Welcome, Premier Partner", "preview": "Your 50% rate is locked for 90 days."}, {"code": "P2", "file": "P2.html", "subject": "Your 15% ad campaign perk", "preview": "More leads for your own business, 15% off."}, {"code": "A1", "file": "A1.html", "subject": "Your Premier spot is still open", "preview": "Finish your sign-up and lock in 50%."}, {"code": "A2", "file": "A2.html", "subject": "Questions? Talk to a partner consultant", "preview": "We'll help you decide in 15 minutes."}, {"code": "C1", "file": "C1.html", "subject": "Your partner call is booked", "preview": "Here's what to have ready."}, {"code": "D75", "file": "D75.html", "subject": "15 days left at your top tier", "preview": "Get your deals in before day 90."}, {"code": "D90", "file": "D90.html", "subject": "Your 90 days are up: here's your tier", "preview": "Your rate now follows your deal volume."}, {"code": "M1", "file": "M1.html", "subject": "The Cyber Monday rates closed, but the door's open", "preview": "You can still join free today."}];
+  var WF = {"L": "Launch", "S": "Starter upgrade", "P": "Premier onboarding", "A": "Abandoned checkout", "C": "Call booked", "D": "Rate reminders", "M": "Missed deadline"};
+  var view = document.getElementById("view");
+  function fit() {
+    try {
+      var d = view.contentDocument;
+      // Preview only: load the logo from this preview instead of bf.growthlock.com
+      d.querySelectorAll('img[src^="https://bf.growthlock.com/assets/"]').forEach(function (i) { i.src = i.getAttribute("src").replace("https://bf.growthlock.com/", "../"); });
+      d.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); }); });
+      view.style.height = d.documentElement.scrollHeight + "px";
+      setTimeout(function () { view.style.height = d.documentElement.scrollHeight + "px"; }, 300);
+    } catch (e) {}
+  }
+  view.addEventListener("load", fit);
+  function show(code) {
+    var e = DATA.find(function (x) { return x.code === code; }) || DATA[0];
+    document.querySelectorAll("#list a").forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + e.code); });
+    document.getElementById("wf").textContent = WF[e.code[0]];
+    document.getElementById("sub").textContent = e.subject;
+    document.getElementById("pre").textContent = e.preview;
+    document.getElementById("file").textContent = "emails/" + e.file;
+    view.src = e.file;
+  }
+  document.querySelectorAll(".bar button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".bar button").forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on");
+      document.getElementById("frame").style.width = b.dataset.w + "px"; setTimeout(fit, 250);
+    });
+  });
+  window.addEventListener("hashchange", function () { show(location.hash.slice(1)); });
+  show(location.hash.slice(1));
+</script>
+</body></html>
