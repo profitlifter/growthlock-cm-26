@@ -39,9 +39,9 @@ window.GL_CONFIG = {
     portal:         "",                               // partner portal / affiliate link page
     onboarding:     "",                               // Premier onboarding calendar
     standardSignup: "https://growthlock.com/partner", // used on offer-ended.html
-    legal:          "",
-    privacy:        "",
-    terms:          "",
-    cookies:        ""
+    legal:          "https://growthlock.com/legal-disclaimer",
+    privacy:        "https://growthlock.com/privacy-policy",
+    terms:          "https://growthlock.com/terms-of-service",
+    cookies:        "https://growthlock.com/cookie-policy"
   }
 };
