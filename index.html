@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowthLock Cyber Monday Partner Event | Top-Tier Commissions for 90 Days</title>
+<meta name="description" content="This Cyber Monday, GrowthLock partners skip the volume climb. Start at the top commission tier for 90 days when you sign up by December 7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     BRAND TOKENS — swap these for GrowthLock's exact colors
+     ========================================================= */
+  :root {
+    --navy: #0b1f3a;
+    --navy-2: #13294b;
+    --ink: #0f172a;
+    --muted: #5b6b82;
+    --line: #e3e8ef;
+    --bg-soft: #f5f8fc;
+    --accent: #16a34a;        /* growth green: primary CTA */
+    --accent-dark: #12813b;
+    --gold: #f5b301;          /* Cyber Monday highlight */
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(11, 31, 58, 0.10);
+    --max: 1160px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  section { padding: 88px 0; }
+  .eyebrow {
+    display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin: 10px 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 640px; }
+  .center { text-align: center; }
+  .center .lead { margin: 0 auto; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 16px;
+    text-decoration: none; border: 2px solid transparent; cursor: pointer;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: var(--white); box-shadow: 0 8px 20px rgba(22,163,74,.30); }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.55); }
+  .btn-ghost:hover { background: rgba(255,255,255,.08); }
+  .btn-outline { background: var(--white); color: var(--navy); border-color: var(--navy); }
+  .btn-outline:hover { background: var(--bg-soft); }
+  .btn-sm { padding: 9px 18px; font-size: 14px; }
+
+  /* 1. Top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50; background: var(--gold); color: var(--navy);
+    font-size: 14px; font-weight: 600;
+  }
+  .topbar .wrap { display: flex; align-items: center; justify-content: center; gap: 18px; padding-top: 9px; padding-bottom: 9px; flex-wrap: wrap; }
+  .topbar .countdown-inline { font-variant-numeric: tabular-nums; font-weight: 800; }
+  .topbar .btn { background: var(--navy); color: var(--white); }
+
+  /* Header */
+  header.site { background: var(--navy); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
+  header.site img { height: 36px; width: auto; }
+  header.site .logo-fallback { color: var(--white); font-weight: 800; font-size: 22px; letter-spacing: -.02em; }
+
+  /* 2. Hero */
+  .hero {
+    background:
+      radial-gradient(900px 400px at 85% 10%, rgba(22,163,74,.22), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--white); padding: 72px 0 96px;
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  .hero .eyebrow { color: var(--gold); }
+  .hero h1 { font-size: clamp(36px, 5.4vw, 60px); font-weight: 800; margin: 14px 0 18px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p.sub { font-size: 19px; color: rgba(255,255,255,.82); max-width: 560px; }
+  .hero .ctas { display: flex; gap: 14px; margin: 30px 0 18px; flex-wrap: wrap; }
+  .hero .assure { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: rgba(255,255,255,.75); }
+  .hero .assure span::before { content: "✓"; color: var(--accent); font-weight: 800; margin-right: 6px; }
+
+  .rate-card {
+    background: var(--white); color: var(--ink); border-radius: 20px; padding: 28px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  }
+  .rate-card .label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .rate-row { display: flex; align-items: baseline; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .rate-row:last-of-type { border-bottom: 0; }
+  .rate-row .plan { font-weight: 700; }
+  .rate-row .plan small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
+  .rate-row .rate { font-size: 40px; font-weight: 800; color: var(--accent); letter-spacing: -.03em; }
+  .rate-row .rate s { font-size: 15px; color: var(--muted); font-weight: 500; margin-right: 8px; }
+  .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+  .countdown div { background: var(--bg-soft); border-radius: 10px; text-align: center; padding: 10px 4px; }
+  .countdown b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; color: var(--navy); }
+  .countdown small { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .rate-card .ends { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+  /* 3. How it works */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+  .step { background: var(--bg-soft); border-radius: var(--radius); padding: 30px; }
+  .step .num {
+    width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: var(--white);
+    display: grid; place-items: center; font-weight: 800; margin-bottom: 16px;
+  }
+  .step h3 { font-size: 21px; margin-bottom: 6px; }
+  .step p { color: var(--muted); }
+
+  /* 4. Offers */
+  #offers { background: var(--bg-soft); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; align-items: stretch; }
+  .card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px;
+    display: flex; flex-direction: column; position: relative;
+  }
+  .card.featured { border: 2px solid var(--accent); box-shadow: var(--shadow); transform: translateY(-8px); }
+  .badge {
+    align-self: flex-start; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+    padding: 5px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--navy); margin-bottom: 16px;
+  }
+  .card.featured .badge { background: var(--accent); color: var(--white); }
+  .card h3 { font-size: 22px; }
+  .card .price { color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .card .big { font-size: 46px; font-weight: 800; color: var(--navy); letter-spacing: -.03em; margin: 18px 0 2px; line-height: 1; }
+  .card .big span { font-size: 17px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+  .card .normally { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+  .card ul { list-style: none; margin-bottom: 26px; flex: 1; }
+  .card li { padding: 7px 0 7px 28px; position: relative; }
+  .card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+  .card .btn { width: 100%; }
+  .card .fine { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; }
+  .help { text-align: center; margin-top: 36px; color: var(--muted); }
+  .help a { color: var(--navy); font-weight: 700; }
+
+  /* 5. Tier comparison */
+  .compare { max-width: 760px; margin: 40px auto 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .compare table { width: 100%; border-collapse: collapse; }
+  .compare th, .compare td { padding: 18px 22px; text-align: left; }
+  .compare thead th { background: var(--navy); color: var(--white); font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+  .compare tbody tr + tr td { border-top: 1px solid var(--line); }
+  .compare td.normal { color: var(--muted); }
+  .compare td.promo { font-weight: 800; color: var(--accent); font-size: 18px; }
+  .compare-note { text-align: center; color: var(--muted); margin-top: 16px; font-size: 15px; }
+
+  /* 6. Who it's for */
+  #who { background: var(--navy); color: var(--white); }
+  #who .lead { color: rgba(255,255,255,.78); }
+  #who .eyebrow { color: var(--gold); }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
+  .chip { border: 1px solid rgba(255,255,255,.3); padding: 10px 20px; border-radius: 999px; font-weight: 600; }
+
+  /* 7. Why GrowthLock */
+  .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; }
+  .why div { border-top: 3px solid var(--accent); padding-top: 18px; }
+  .why b { display: block; font-size: 19px; margin-bottom: 6px; }
+  .why p { color: var(--muted); font-size: 15px; }
+
+  /* 8. FAQ */
+  #faq { background: var(--bg-soft); }
+  .faq { max-width: 780px; margin: 40px auto 0; }
+  .faq details { background: var(--white); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; }
+  .faq summary {
+    cursor: pointer; list-style: none; padding: 20px 24px; font-weight: 700; font-size: 17px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-size: 24px; color: var(--accent); font-weight: 600; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { padding: 0 24px 20px; color: var(--muted); }
+
+  /* 9. Final CTA */
+  .final {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, #0f3d2a 100%);
+    color: var(--white); text-align: center;
+  }
+  .final h2 { font-size: clamp(30px, 4.5vw, 46px); }
+  .final .lead { color: rgba(255,255,255,.8); margin: 0 auto; }
+  .final .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 32px 0; }
+  .final .countdown { max-width: 420px; margin: 0 auto; }
+  .final .countdown div { background: rgba(255,255,255,.08); }
+  .final .countdown b { color: var(--white); }
+  .final .countdown small { color: rgba(255,255,255,.65); }
+
+  /* Footer */
+  footer { background: #071426; color: rgba(255,255,255,.6); font-size: 13px; padding: 40px 0; }
+  footer p { max-width: 860px; margin-bottom: 16px; }
+  footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+  footer nav a { color: rgba(255,255,255,.8); text-decoration: none; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Offer-ended state */
+  body.ended .promo-only { display: none !important; }
+  .ended-banner { display: none; }
+  body.ended .ended-banner { display: block; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .card.featured { transform: none; order: -1; }
+    .why { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .steps { grid-template-columns: 1fr; }
+    .why { grid-template-columns: 1fr; }
+    .hero .ctas .btn, .final .ctas .btn { width: 100%; }
+    .topbar .label-long { display: none; }
+    .compare th, .compare td { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. Top bar -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="promo-only"><span class="label-long">Cyber Monday partner offers end Dec 7 at 11:59 PM CT ·</span> <span class="countdown-inline" data-countdown-inline>--d --h --m</span></span>
+    <span class="ended-banner">The Cyber Monday partner offers have ended. You can still join free today.</span>
+    <a class="btn btn-sm" href="#offers">Claim your rate</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a href="https://growthlock.com" aria-label="GrowthLock home">
+      <img src="https://growthlock.com/_nuxt/img/gl-logo.a285173.webp" alt="GrowthLock"
+           onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'GrowthLock'}))">
+    </a>
+    <a class="btn btn-ghost btn-sm" data-link="call" href="#">Talk to a consultant</a>
+  </div>
+</header>
+
+<!-- 2. Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">GrowthLock Cyber Monday Partner Event</span>
+      <h1>Turn Your Network Into <em>Top-Tier</em> Commissions.</h1>
+      <p class="sub">This Cyber Monday, GrowthLock partners skip the volume climb. Start at our top commission tier for 90 days when you sign up by December 7.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" data-link="premier" href="#">Become a Premier Partner</a>
+        <a class="btn btn-ghost" data-link="starter" href="#">Join Free</a>
+      </div>
+      <div class="assure">
+        <span>Sign up in about 60 seconds</span>
+        <span>No volume needed</span>
+        <span>Offer ends Dec 7</span>
+      </div>
+    </div>
+
+    <div class="rate-card">
+      <div class="label">Your Cyber Monday rate, first 90 days</div>
+      <div class="rate-row">
+        <div class="plan">Premier Partner<small>$499/month</small></div>
+        <div class="rate"><s>35%</s>50%</div>
+      </div>
+      <div class="rate-row">
+        <div class="plan">Starter<small>Free</small></div>
+        <div class="rate"><s>20%</s>35%</div>
+      </div>
+      <div class="promo-only">
+        <div class="countdown" data-countdown>
+          <div><b data-d>--</b><small>Days</small></div>
+          <div><b data-h>--</b><small>Hours</small></div>
+          <div><b data-m>--</b><small>Mins</small></div>
+          <div><b data-s>--</b><small>Secs</small></div>
+        </div>
+        <p class="ends">Ends Monday, Dec 7 at 11:59 PM CT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. How it works -->
+<section id="how">
+  <div class="wrap center">
+    <span class="eyebrow">How it works</span>
+    <h2>You Refer. We Fund. You Get Paid.</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>You Refer</h3><p>Share your partner link with business owners who need capital.</p></div>
+      <div class="step"><div class="num">2</div><h3>We Fund</h3><p>Our team handles matching, paperwork and approval.</p></div>
+      <div class="step"><div class="num">3</div><h3>You Get Paid</h3><p>Earn a share of the fees we earn on every funded business loan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Offers -->
+<section id="offers">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Cyber Monday offers</span>
+      <h2>Pick Your Path. Start at the Top.</h2>
+      <p class="lead">Three Cyber Monday offers, open until December 7.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="badge">Free</span>
+        <h3>Starter</h3>
+        <div class="price">$0</div>
+        <div class="big">35% <span>for 90 days</span></div>
+        <div class="normally">Normally 20% to 35% by volume</div>
+        <ul>
+          <li>Top affiliate tier from deal one</li>
+          <li>Partner link and tools</li>
+          <li>Webinars and business guidance</li>
+        </ul>
+        <a class="btn btn-outline" data-link="starter" href="#">Join Free</a>
+        <p class="fine">No cost, no commitment</p>
+      </div>
+
+      <div class="card featured">
+        <span class="badge">Best Rate</span>
+        <h3>Premier Partner</h3>
+        <div class="price">$499/month</div>
+        <div class="big">50% <span>for 90 days</span></div>
+        <div class="normally">Normally 35% to 50% by volume</div>
+        <ul>
+          <li>Top commission tier from deal one</li>
+          <li>Compliance and website review</li>
+          <li>Funnel builds on request</li>
+          <li>Priority partner support</li>
+        </ul>
+        <a class="btn btn-primary" data-link="premier" href="#">Become a Premier Partner</a>
+        <p class="fine">Monthly plan only</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Partners Only</span>
+        <h3>Partner Perk</h3>
+        <div class="price">Nov8rs.io ad campaign</div>
+        <div class="big">15% <span>off</span></div>
+        <div class="normally">A new ad campaign for your own business</div>
+        <ul>
+          <li>Done for you: strategy, creative, launch</li>
+          <li>More leads for your business</li>
+          <li>Start by Dec 7</li>
+        </ul>
+        <a class="btn btn-outline" data-link="ads" href="#">Claim 15% Off</a>
+        <p class="fine">Available to GrowthLock partners</p>
+      </div>
+    </div>
+
+    <p class="help">Not sure which fits? <a data-link="call" href="#">Talk to a partner consultant →</a></p>
+  </div>
+</section>
+
+<!-- 5. Tier comparison -->
+<section id="compare">
+  <div class="wrap center">
+    <span class="eyebrow">Skip the climb</span>
+    <h2>Start Where Others Finish.</h2>
+    <p class="lead">Partners normally earn their way up by volume. Sign up by December 7 and every deal for your first 90 days pays the top tier.</p>
+    <div class="compare">
+      <table>
+        <thead><tr><th>Plan</th><th>Normally</th><th>Cyber Monday (first 90 days)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Starter</b> (free)</td><td class="normal">20% → 35%</td><td class="promo">35% on every deal</td></tr>
+          <tr><td><b>Premier Partner</b> ($499/mo)</td><td class="normal">35% → 50%</td><td class="promo">50% on every deal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">After 90 days, your rate follows your volume tier.</p>
+  </div>
+</section>
+
+<!-- 6. Who it's for -->
+<section id="who">
+  <div class="wrap center">
+    <span class="eyebrow">Who it's for</span>
+    <h2>Built for People Who Know Business Owners.</h2>
+    <p class="lead">If business owners trust you, you already have what it takes. Funding comes up in every growing business. Now it pays you when it does.</p>
+    <div class="chips">
+      <span class="chip">Agencies</span>
+      <span class="chip">Consultants</span>
+      <span class="chip">Coaches</span>
+      <span class="chip">Accountants &amp; bookkeepers</span>
+      <span class="chip">Brokers</span>
+      <span class="chip">Anyone whose clients run a business</span>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Why GrowthLock -->
+<section id="why">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Why GrowthLock</span>
+      <h2>A Partner Program That Actually Supports You.</h2>
+    </div>
+    <div class="why">
+      <div><b>240+ industries served</b><p>More of your network qualifies.</p></div>
+      <div><b>We handle the funding</b><p>Matching, paperwork and approval.</p></div>
+      <div><b>Real partner support</b><p>A team, marketing resources and tools.</p></div>
+      <div><b>Fast sign-up</b><p>Start sharing your link in about 60 seconds.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, Answered.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What is the commission paid on?</summary><p>A percentage of the fees GrowthLock earns on each funded business loan.</p></details>
+      <details><summary>How long do the Cyber Monday rates last?</summary><p>90 days from the day you sign up. Sign up by December 7 at 11:59 PM CT.</p></details>
+      <details><summary>What happens after 90 days?</summary><p>Your rate moves to the tier your deal volume earns. The more you fund, the higher you go.</p></details>
+      <details><summary>What kind of deals qualify?</summary><p>Established businesses that generate revenue and have a real funding need. Consumer loans don't qualify.</p></details>
+      <details><summary>Can I start free and upgrade later?</summary><p>Yes. Upgrade to Premier by December 7 to get 50% for 90 days.</p></details>
+      <details><summary>Does the promo apply to the yearly Premier plan?</summary><p>No, the Cyber Monday rate applies to the monthly plan only.</p></details>
+      <details><summary>Who can claim 15% off an ad campaign?</summary><p>GrowthLock partners, for a new Nov8rs.io campaign for their own business started by December 7.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Final CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>The Top Tier Is Open Until December 7.</h2>
+    <p class="lead">Join free or go Premier today, and every deal for your first 90 days pays the top rate.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" data-link="premier" href="#">Become a Premier Partner</a>
+      <a class="btn btn-ghost" data-link="starter" href="#">Join Free</a>
+      <a class="btn btn-ghost" data-link="call" href="#">Talk to a Consultant</a>
+    </div>
+    <div class="countdown promo-only" data-countdown>
+      <div><b data-d>--</b><small>Days</small></div>
+      <div><b data-h>--</b><small>Hours</small></div>
+      <div><b data-m>--</b><small>Mins</small></div>
+      <div><b data-s>--</b><small>Secs</small></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Commissions are a percentage of the earned fees on funded business loans. Earnings vary and are not guaranteed. Promotional rates apply to sign-ups completed by 11:59 PM CT on December 7, 2026, for 90 days from sign-up. Premier promo applies to the monthly plan only.</p>
+    <nav>
+      <a data-link="legal" href="#">Legal Disclaimer</a>
+      <a data-link="privacy" href="#">Privacy Policy</a>
+      <a data-link="terms" href="#">Terms of Service</a>
+      <a data-link="cookies" href="#">Cookie Policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  /* =========================================================
+     LINKS — fill these in before going live.
+     Every button with data-link="..." uses the matching URL.
+     ========================================================= */
+  const LINKS = {
+    starter: "#",   // Starter (free) sign-up form → tags CM26-Starter
+    premier: "#",   // Premier Partner $499/mo checkout → tags CM26-Premier
+    call:    "#",   // Consultant calendar → tags CM26-CallBooked
+    ads:     "#",   // Nov8rs.io ad campaign intake → tags CM26-AdCampaign
+    legal:   "#",
+    privacy: "#",
+    terms:   "#",
+    cookies: "#"
+  };
+
+  // Deadline: Dec 7, 2026, 11:59:59 PM Central (CST = UTC-6)
+  const DEADLINE = new Date("2026-12-07T23:59:59-06:00").getTime();
+
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const url = LINKS[a.dataset.link];
+    if (url && url !== "#") a.href = url;
+  });
+
+  const pad = n => String(n).padStart(2, "0");
+  function tick() {
+    const left = DEADLINE - Date.now();
+    if (left <= 0) { document.body.classList.add("ended"); return false; }
+    const d = Math.floor(left / 864e5);
+    const h = Math.floor(left / 36e5) % 24;
+    const m = Math.floor(left / 6e4) % 60;
+    const s = Math.floor(left / 1e3) % 60;
+    document.querySelectorAll("[data-countdown]").forEach(el => {
+      el.querySelector("[data-d]").textContent = pad(d);
+      el.querySelector("[data-h]").textContent = pad(h);
+      el.querySelector("[data-m]").textContent = pad(m);
+      el.querySelector("[data-s]").textContent = pad(s);
+    });
+    document.querySelectorAll("[data-countdown-inline]").forEach(el => {
+      el.textContent = `${d}d ${pad(h)}h ${pad(m)}m left`;
+    });
+    return true;
+  }
+  if (tick()) { const t = setInterval(() => { if (!tick()) clearInterval(t); }, 1000); }
+</script>
+</body>
+</html>
