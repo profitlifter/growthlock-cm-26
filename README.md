@@ -5,6 +5,7 @@ A single self-contained landing page for the GrowthLock Cyber Monday partner pro
 ## Files
 
 - `index.html`: the whole page (HTML, CSS and JS in one file)
+- `assets/growthlock-logo.png`: GrowthLock logo
 
 ## Before going live
 
@@ -14,8 +15,8 @@ A single self-contained landing page for the GrowthLock Cyber Monday partner pro
    - `call`: consultant calendar (tags `CM26-CallBooked`)
    - `ads`: Nov8rs.io ad campaign intake (tags `CM26-AdCampaign`)
    - `legal`, `privacy`, `terms`, `cookies`: GrowthLock's legal pages
-2. **Brand colors:** swap the values under `BRAND TOKENS` at the top of the `<style>` block for GrowthLock's exact colors.
-3. **Logo:** loads from growthlock.com. If it fails, the page shows a "GrowthLock" text logo instead.
+2. **Brand colors:** the green matches the logo (`#05E432`). All colors live under `BRAND TOKENS` at the top of the `<style>` block.
+3. **Logo:** `assets/growthlock-logo.png` (transparent PNG). Keep the `assets` folder next to `index.html` when you deploy.
 
 ## How it behaves
 

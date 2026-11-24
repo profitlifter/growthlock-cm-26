@@ -19,8 +19,9 @@
     --muted: #5b6b82;
     --line: #e3e8ef;
     --bg-soft: #f5f8fc;
-    --accent: #16a34a;        /* growth green: primary CTA */
-    --accent-dark: #12813b;
+    --accent: #05e432;        /* GrowthLock logo green: buttons, highlights on dark */
+    --accent-dark: #04c42b;
+    --accent-text: #0a8f27;   /* darker green for text on light backgrounds */
     --gold: #f5b301;          /* Cyber Monday highlight */
     --white: #ffffff;
     --radius: 14px;
@@ -43,7 +44,7 @@
   section { padding: 88px 0; }
   .eyebrow {
     display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--accent);
+    text-transform: uppercase; color: var(--accent-text);
   }
   h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
   h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin: 10px 0 14px; }
@@ -59,7 +60,7 @@
     transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--accent); color: var(--white); box-shadow: 0 8px 20px rgba(22,163,74,.30); }
+  .btn-primary { background: var(--accent); color: var(--navy); box-shadow: 0 8px 20px rgba(5,228,50,.28); }
   .btn-primary:hover { background: var(--accent-dark); }
   .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.55); }
   .btn-ghost:hover { background: rgba(255,255,255,.08); }
@@ -79,13 +80,13 @@
   /* Header */
   header.site { background: var(--navy); }
   header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
-  header.site img { height: 36px; width: auto; }
+  header.site img { height: 40px; width: auto; }
   header.site .logo-fallback { color: var(--white); font-weight: 800; font-size: 22px; letter-spacing: -.02em; }
 
   /* 2. Hero */
   .hero {
     background:
-      radial-gradient(900px 400px at 85% 10%, rgba(22,163,74,.22), transparent 60%),
+      radial-gradient(900px 400px at 85% 10%, rgba(5,228,50,.18), transparent 60%),
       linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
     color: var(--white); padding: 72px 0 96px;
   }
@@ -107,7 +108,7 @@
   .rate-row:last-of-type { border-bottom: 0; }
   .rate-row .plan { font-weight: 700; }
   .rate-row .plan small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
-  .rate-row .rate { font-size: 40px; font-weight: 800; color: var(--accent); letter-spacing: -.03em; }
+  .rate-row .rate { font-size: 40px; font-weight: 800; color: var(--accent-text); letter-spacing: -.03em; }
   .rate-row .rate s { font-size: 15px; color: var(--muted); font-weight: 500; margin-right: 8px; }
   .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
   .countdown div { background: var(--bg-soft); border-radius: 10px; text-align: center; padding: 10px 4px; }
@@ -137,7 +138,7 @@
     align-self: flex-start; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
     padding: 5px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--navy); margin-bottom: 16px;
   }
-  .card.featured .badge { background: var(--accent); color: var(--white); }
+  .card.featured .badge { background: var(--accent); color: var(--navy); }
   .card h3 { font-size: 22px; }
   .card .price { color: var(--muted); font-weight: 600; margin-top: 2px; }
   .card .big { font-size: 46px; font-weight: 800; color: var(--navy); letter-spacing: -.03em; margin: 18px 0 2px; line-height: 1; }
@@ -145,7 +146,7 @@
   .card .normally { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
   .card ul { list-style: none; margin-bottom: 26px; flex: 1; }
   .card li { padding: 7px 0 7px 28px; position: relative; }
-  .card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+  .card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-text); font-weight: 800; }
   .card .btn { width: 100%; }
   .card .fine { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; }
   .help { text-align: center; margin-top: 36px; color: var(--muted); }
@@ -158,7 +159,7 @@
   .compare thead th { background: var(--navy); color: var(--white); font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
   .compare tbody tr + tr td { border-top: 1px solid var(--line); }
   .compare td.normal { color: var(--muted); }
-  .compare td.promo { font-weight: 800; color: var(--accent); font-size: 18px; }
+  .compare td.promo { font-weight: 800; color: var(--accent-text); font-size: 18px; }
   .compare-note { text-align: center; color: var(--muted); margin-top: 16px; font-size: 15px; }
 
   /* 6. Who it's for */
@@ -183,7 +184,7 @@
     display: flex; justify-content: space-between; align-items: center; gap: 16px;
   }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; font-size: 24px; color: var(--accent); font-weight: 600; }
+  .faq summary::after { content: "+"; font-size: 24px; color: var(--accent-text); font-weight: 600; }
   .faq details[open] summary::after { content: "–"; }
   .faq details p { padding: 0 24px 20px; color: var(--muted); }
 
@@ -243,7 +244,7 @@
 <header class="site">
   <div class="wrap">
     <a href="https://growthlock.com" aria-label="GrowthLock home">
-      <img src="https://growthlock.com/_nuxt/img/gl-logo.a285173.webp" alt="GrowthLock"
+      <img src="assets/growthlock-logo.png" alt="GrowthLock"
            onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'GrowthLock'}))">
     </a>
     <a class="btn btn-ghost btn-sm" data-link="call" href="#">Talk to a consultant</a>
