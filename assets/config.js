@@ -18,7 +18,7 @@ window.GL_CONFIG = {
   // straight to the thank-you page.
   WEBHOOKS: {
     default: "",
-    starter: "",   // join.html         → tag CM26-Starter
+    starter: "https://services.leadconnectorhq.com/hooks/QbBVKSPz5Po8hhq5LuxL/webhook-trigger/19079e55-a59e-49b7-875e-4b1525d542f6",   // join.html → tag CM26-Starter
     premier: "",   // premier.html      → tag CM26-CheckoutStarted
     call:    "",   // book-call.html    → tag CM26-CallBooked
     ads:     ""    // ad-campaign.html  → tag CM26-AdCampaign
