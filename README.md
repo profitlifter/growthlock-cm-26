@@ -1,6 +1,6 @@
 # GrowthLock Cyber Monday 2026: Partner Funnel
 
-Static site for the GrowthLock Cyber Monday partner promo. Sign-ups close **Dec 7, 2026 at 11:59 PM CT**, and promo rates last 90 days from sign-up.
+Static site for the GrowthLock Cyber Monday partner promo. Sign-ups close **Dec 7, 2026 at 11:59 PM CT**. Premier Monthly pays 50% for the first 3 months from sign-up (first 30 days free, then $499/month). Premier Yearly ($3,995/year) pays 50% for the first 6 months. Free Starter pays 35% for 90 days.
 
 **Live domain:** `https://bf.growthlock.com` (each page at `/page-name.html`; every page has its canonical URL and social share tags set to this domain).
 
@@ -10,51 +10,42 @@ No build step: plain HTML, CSS and JavaScript. Deploy the whole folder.
 
 ## Pages
 
-| Page | Purpose | Form → GHL tag | Next page |
-| --- | --- | --- | --- |
-| `index.html` | Landing page: 3 offers, countdown, FAQ | (none) | n/a |
-| `join.html` | Starter (free) sign-up, 35% for 90 days | `CM26-Starter` | `thank-you-starter.html` |
-| `premier.html` | Premier details, step 1 of checkout | `CM26-CheckoutStarted` | Payment page → `thank-you-premier.html` |
-| `book-call.html` | Consultant call request, or live GHL calendar | `CM26-CallBooked` | `thank-you-call.html` |
-| `ad-campaign.html` | 15% off Nov8rs.io ad campaign intake (partners) | `CM26-AdCampaign` | `thank-you-ad.html` |
-| `thank-you-starter.html` | Next steps + Premier upsell **through the landing page** | (none) | n/a |
-| `thank-you-premier.html` | Onboarding steps + ad perk | (none) | n/a |
-| `thank-you-call.html` | Call confirmation | (none) | n/a |
-| `thank-you-ad.html` | Intake confirmation | (none) | n/a |
-| `offer-ended.html` | Shown after the deadline | (none) | n/a |
+| Page | Purpose | Sign-up / next step |
+| --- | --- | --- |
+| `index.html` | Landing page: Premier Monthly and Yearly, 15% ad perk, countdown, FAQ, **exit-intent pop-up** (Free Starter) | Enroll buttons → `https://partner.growthlock.com/auth/sign-up`; ad perk → `http://profitlifter.com/growthlock-bfcm` |
+| `join.html` | Free Starter explainer (35% for 90 days). Reached from the exit pop-up and from emails; not linked from the offer cards | Buttons → `https://partner.growthlock.com/auth/sign-up` |
+| `book-call.html` | Consultant call request, or live GHL calendar | Form → tag `CM26-CallBooked` → `thank-you-call.html` |
+| `thank-you-call.html` | Call confirmation | n/a |
+| `offer-ended.html` | Shown after the deadline | n/a |
+
+Retired in v2: `premier.html`, `ad-campaign.html`, `thank-you-starter.html`, `thank-you-premier.html`, `thank-you-ad.html`. Enrollment, payment and the contact/tag creation now happen on the partner portal.
 
 ## Setup: edit `assets/config.js` only
 
-1. **Webhooks:** in GHL, create a workflow with the **Inbound Webhook** trigger and copy its URL into `WEBHOOKS.default` (or give each form its own URL). Submit each form once so GHL can map the fields, then add actions in the workflow:
-   - Create/update contact from `first_name`, `last_name`, `email`, `phone`
-   - Add the tag(s) from the `tags` field
-   - Add to the **CM26 Partner Drive** pipeline at the right stage
-2. **Premier payment:** set `PREMIER_PAYMENT_URL` to the $499/mo GHL order form or Stripe Payment Link. Set its success redirect to `thank-you-premier.html`, and have the payment add the `CM26-Premier` tag. The visitor's `first_name`, `last_name`, `name`, `email` and `phone` are added to the URL for prefill.
-   - Abandoned checkout: contacts tagged `CM26-CheckoutStarted` without `CM26-Premier` after 1 hour → add `CM26-Abandoned`.
+1. **Sign-up links:** `LINKS.signup` is used by every enroll button. `LINKS.adPerk` is the 15% ad campaign landing page.
+2. **Call form webhook (optional):** create a GHL workflow with the **Inbound Webhook** trigger and put its URL in `WEBHOOKS.call`. Submit the form once so GHL can map the fields.
 3. **Calendar (optional):** set `CALENDAR_EMBED_URL` to the GHL booking widget URL. `book-call.html` then shows the live calendar instead of the request form.
-4. **Links:** fill in `LINKS.portal`, `LINKS.onboarding` and the legal pages.
+4. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html` (desktop: cursor leaves the top of the window; mobile: fast scroll back up). It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
 
-**Preview mode:** while a webhook is empty, forms skip sending and go straight to the thank-you page (the payload is logged in the browser console). Good for testing; fill in the webhooks before launch.
+**Preview mode:** while `WEBHOOKS.call` is empty, the call form skips sending and goes straight to the thank-you page (the payload is logged in the browser console).
 
-## What every form sends
+## What the call form sends
 
 All fields on the form, plus:
 
 `tags`, `campaign` (CM26 Partner Drive), `form`, `page`, `submitted_at`, `sms_consent` (yes/no), `terms_agree` (yes/no), and any `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` from the visitor's first page.
 
-Forms post as standard form-encoded data in `no-cors` mode, so the browser can't confirm GHL's response. **Test every form once after setup** and check the contact appears in GHL with the right tags.
-
-Spam: each form has a hidden honeypot field; bot submissions are dropped silently.
+Forms post as standard form-encoded data in `no-cors` mode, so the browser can't confirm GHL's response. **Test the form once after setup.** Spam: the form has a hidden honeypot field; bot submissions are dropped silently.
 
 ## Deadline behavior
 
 - Countdowns run to `DEADLINE`.
-- After the deadline, `index.html`, `join.html`, `premier.html` and `ad-campaign.html` redirect to `offer-ended.html` (turn off with `REDIRECT_AFTER_DEADLINE: false`). Promo banners and countdowns hide everywhere.
+- After the deadline, `index.html` and `join.html` redirect to `offer-ended.html` (turn off with `REDIRECT_AFTER_DEADLINE: false`). Promo banners and countdowns hide everywhere.
 
 ## Files
 
 - `assets/config.js`: settings (the only file to edit)
-- `assets/site.js`: forms, countdown, deadline, links
+- `assets/site.js`: call form, countdown, deadline, links, exit-intent pop-up
 - `assets/styles.css`: all styles; brand colors are under `BRAND TOKENS` (green `#05E432` matches the logo)
 - `assets/growthlock-logo.png`: logo
 

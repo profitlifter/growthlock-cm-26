@@ -71,6 +71,50 @@
     var t = new Date(); el.min = t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate());
   });
 
+
+  /* ---------- Exit-intent pop-up (landing page only) ---------- */
+  var modal = document.getElementById("exit-modal");
+  if (modal && C.EXIT_POPUP_ENABLED !== false && !ended) {
+    var shown = false, armed = false, lastFocus = null;
+    try { shown = sessionStorage.getItem("gl_exit_shown") === "1"; } catch (e) {}
+
+    var closeModal = function () {
+      modal.hidden = true; document.body.classList.remove("modal-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    var openModal = function () {
+      if (shown || !armed) return;
+      shown = true;
+      try { sessionStorage.setItem("gl_exit_shown", "1"); } catch (e) {}
+      lastFocus = document.activeElement;
+      modal.hidden = false; document.body.classList.add("modal-open");
+      var go = modal.querySelector("[data-exit-cta]"); if (go) go.focus();
+    };
+
+    // Don't interrupt people who are already heading to sign up.
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a");
+      if (a && (a.dataset.link === "signup" || a.hasAttribute("data-exit-cta"))) shown = true;
+    });
+    modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest("[data-exit-close]")) closeModal(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+
+    setTimeout(function () { armed = true; }, 4000);
+
+    // Desktop: cursor leaves through the top of the window.
+    document.addEventListener("mouseout", function (e) {
+      if (!e.relatedTarget && e.clientY <= 0) openModal();
+    });
+    // Mobile: fast scroll back up after reading a good part of the page.
+    var lastY = window.scrollY, lastT = Date.now(), maxY = 0;
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY, t = Date.now(); maxY = Math.max(maxY, y);
+      var vel = (lastY - y) / Math.max(t - lastT, 1);
+      if (matchMedia("(pointer: coarse)").matches && maxY > 900 && vel > 1.2 && y > 100) openModal();
+      lastY = y; lastT = t;
+    }, { passive: true });
+  }
+
   /* ---------- Forms ---------- */
   function fieldWrap(el) { return el.closest(".field") || el.closest(".check"); }
 
@@ -141,12 +185,6 @@
       store.setItem("gl_email", data.email || "");
 
       var next = form.dataset.next || "index.html";
-      if (key === "premier" && C.PREMIER_PAYMENT_URL) {
-        var u = new URL(C.PREMIER_PAYMENT_URL, window.location.href);
-        ["first_name", "last_name", "email", "phone"].forEach(function (k) { if (data[k]) u.searchParams.set(k, data[k]); });
-        if (data.first_name || data.last_name) u.searchParams.set("name", ((data.first_name || "") + " " + (data.last_name || "")).trim());
-        next = u.toString();
-      }
 
       var url = WEBHOOKS[key] || WEBHOOKS["default"];
       if (bot || !url) {

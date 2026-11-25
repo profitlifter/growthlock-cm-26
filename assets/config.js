@@ -7,38 +7,31 @@ window.GL_CONFIG = {
   // Promo deadline: Dec 7, 2026, 11:59:59 PM Central (CST = UTC-6).
   DEADLINE: "2026-12-07T23:59:59-06:00",
 
-  // After the deadline, send visitors of promo pages (landing, join,
-  // premier, ad campaign) to offer-ended.html automatically.
+  // After the deadline, send visitors of promo pages (landing, join)
+  // to offer-ended.html automatically.
   REDIRECT_AFTER_DEADLINE: true,
 
-  // GHL Inbound Webhook URLs (Automation > Workflows > trigger "Inbound Webhook").
-  // Each form posts its fields + a "tags" value to its webhook.
-  // Use one webhook for all forms (put it in "default") or one per form.
-  // Leave empty to run in preview mode: forms skip posting and go
-  // straight to the thank-you page.
+  // Exit-intent pop-up on the landing page (Free Starter tripwire).
+  // It shows once per visit when someone is about to leave without clicking a sign-up button.
+  EXIT_POPUP_ENABLED: true,
+
+  // GHL Inbound Webhook for the consultant call form (book-call.html → tag CM26-CallBooked).
+  // Leave empty to run in preview mode: the form skips posting and goes straight to the thank-you page.
   WEBHOOKS: {
     default: "",
-    starter: "https://services.leadconnectorhq.com/hooks/QbBVKSPz5Po8hhq5LuxL/webhook-trigger/19079e55-a59e-49b7-875e-4b1525d542f6",   // join.html → tag CM26-Starter
-    premier: "",   // premier.html      → tag CM26-CheckoutStarted
-    call:    "",   // book-call.html    → tag CM26-CallBooked
-    ads:     ""    // ad-campaign.html  → tag CM26-AdCampaign
+    call:    ""
   },
-
-  // Premier Partner $499/mo payment page (GHL order form or Stripe Payment Link).
-  // Set its success / thank-you redirect to: thank-you-premier.html
-  // The visitor's name and email are added to the URL so the checkout can prefill.
-  PREMIER_PAYMENT_URL: "",
 
   // Optional: GHL consultant calendar embed URL
   // (e.g. https://api.leadconnectorhq.com/widget/booking/XXXX).
   // If set, book-call.html shows the live calendar instead of the request form.
   CALENDAR_EMBED_URL: "",
 
-  // Other links used on the pages.
+  // Links used on the pages.
   LINKS: {
-    portal:         "",                               // partner portal / affiliate link page
-    onboarding:     "",                               // Premier onboarding calendar
-    standardSignup: "https://growthlock.com/partner", // used on offer-ended.html
+    signup:         "https://partner.growthlock.com/auth/sign-up",  // every sign-up / enroll button
+    adPerk:         "http://profitlifter.com/growthlock-bfcm",      // 15% off ad campaign landing page
+    standardSignup: "https://growthlock.com/partner",               // used on offer-ended.html
     legal:          "https://growthlock.com/legal-disclaimer",
     privacy:        "https://growthlock.com/privacy-policy",
     terms:          "https://growthlock.com/terms-of-service",
