@@ -1,6 +1,6 @@
 # GrowthLock Cyber Monday 2026: Partner Funnel
 
-Static site for the GrowthLock Cyber Monday partner promo. Sign-ups close **Dec 7, 2026 at 11:59 PM CT**. Premier Monthly pays 50% for the first 3 months from sign-up (first 30 days free, then $499/month). Premier Yearly ($3,995/year) pays 50% for the first 6 months. Free Starter pays 35% for 90 days.
+Static site for the GrowthLock Cyber Monday partner promo. Sign-ups close **Dec 7, 2026 at 11:59 PM CT**. Premier Monthly pays 50% for the first 3 months from sign-up (first 30 days free, then $499/month). Premier Yearly ($3,995/year) pays 50% for the first 6 months. Free Starter (public) pays 30% for 90 days; Profit Lifter partners get 35%.
 
 **Live domain:** `https://bf.growthlock.com` (each page at `/page-name.html`; every page has its canonical URL and social share tags set to this domain).
 
@@ -13,7 +13,7 @@ No build step: plain HTML, CSS and JavaScript. Deploy the whole folder.
 | Page | Purpose | Sign-up / next step |
 | --- | --- | --- |
 | `index.html` | Landing page: Premier Monthly and Yearly, 15% ad perk, countdown, FAQ, **exit-intent pop-up** (Free Starter) | Enroll buttons → `https://partner.growthlock.com/auth/sign-up`; ad perk → `http://profitlifter.com/growthlock-bfcm` |
-| `join.html` | Free Starter explainer (35% for 90 days). Reached from the exit pop-up and from emails; not linked from the offer cards | Buttons → `https://partner.growthlock.com/auth/sign-up` |
+| `join.html` | Free Starter explainer (30% for 90 days). Reached from the exit pop-up and from emails; not linked from the offer cards | Buttons → `https://partner.growthlock.com/auth/sign-up` |
 | `book-call.html` | Consultant call request, or live GHL calendar | Form → tag `CM26-CallBooked` → `thank-you-call.html` |
 | `thank-you-call.html` | Call confirmation | n/a |
 | `offer-ended.html` | Shown after the deadline | n/a |
