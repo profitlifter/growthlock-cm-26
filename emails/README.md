@@ -22,20 +22,20 @@
 
 | Code | Workflow | When | Subject | Preview text | Main link |
 | --- | --- | --- | --- | --- | --- |
-| L1 | Launch | Wed Nov 25, 10 AM | You're in early, {{contact.first_name}} | Top-tier partner rates, before anyone else. | Landing page offers + join.html |
+| L1 | Launch | Wed Nov 25, 10 AM | You're in early, {{contact.first_name}} | Top-tier partner rates, before anyone else. | Landing page offers + profit-lifter.html |
 | L2 | Launch | Fri Nov 27, 10 AM | Monday, partner rates go to the top | Mark your calendar for Cyber Monday. | Landing page offers |
 | L3 | Launch | Mon Nov 30, 8 AM | It's live: start at 50% from day one | Two Premier plans plus 15% off ads. Ends Dec 7. | Landing page offers |
 | L4 | Launch | Wed Dec 2, 10 AM | Who in your network needs funding? | The easiest referral you'll make this year. | Landing page offers |
 | L5 | Launch | Fri Dec 4, 10 AM | The 50% tier, without the climb | Premier Partners start at the top through Dec 7. | Landing page offers |
 | L6 | Launch | Sun Dec 6, 6 PM | 24 hours left at the top tier | Cyber Monday partner rates end tomorrow night. | Landing page offers |
 | L7 | Launch | Mon Dec 7, 9 AM | Last call: offers end tonight | Midnight CT. After that, standard tiers. | Landing page offers |
-| S1 | Starter upgrade | Immediately | You're in. Here's your partner link | Your 35% rate is locked for 90 days. | Partner portal |
-| S2 | Starter upgrade | +1 day | Here's what 50% looks like | Same deals, 15 more points of commission. | Landing page offers |
+| S1 | Starter upgrade | Immediately | You're in. Here's your partner link | Your Starter rate is locked for 90 days. | Partner portal |
+| S2 | Starter upgrade | +1 day | Here's what 50% looks like | Same deals, a much bigger commission. | Landing page offers |
 | S3 | Starter upgrade | +3 days | Want to talk it through? | 15 minutes with a partner consultant. | book-call.html |
 | S4 | Starter upgrade | Mon Dec 7, 12 PM | Last chance to upgrade at 50% | The Premier offer closes at midnight. | Landing page offers |
 | P1 | Premier onboarding (Monthly) | Immediately | Welcome, Premier Partner | Your 50% rate is locked for 3 months. | Onboarding calendar |
 | P1Y | Premier onboarding (Yearly) | Immediately | Welcome, Premier Partner | Your 50% rate is locked for 6 months. | Onboarding calendar |
-| P2 | Premier onboarding | +2 days | Your 15% ad campaign perk | More leads for your own business, 15% off. | profitlifter.com/growthlock-bfcm |
+| P2 | Premier onboarding | +2 days | Your 15% ad campaign perk | More leads for your own business, 15% off. | ad-perk.html |
 | C1 | Call booked | Immediately | Your partner call is booked | Here's what to have ready. | Landing page offers |
 | D75 | Rate reminders (Starter + Premier Monthly) | Day 75 from sign-up | 15 days left at your top rate | Get your deals in before your window ends. | Partner portal |
 | D90 | Rate reminders (Starter + Premier Monthly) | Day 90 from sign-up (Monthly: 3-month mark) | Your top-rate window is up: here's your tier | Your rate now follows your deal volume. | book-call.html |
@@ -58,6 +58,8 @@ Enrollment happens on the partner portal, which creates the contact and a tag in
 | Rate reminders (Starter) | Starter sign-up + 75 / 90 day waits | D75, D90 | n/a |
 
 Add a stop condition on L2 to L7 and S2 to S4 for contacts who already hold a Premier tag.
+
+**Starter rates:** the public Starter offer is 30%; Profit Lifter clients get 35% through `profit-lifter.html` (L1 links there). S1 and S2 are rate-neutral because both groups land in the Starter upgrade workflow.
 
 ## SMS (paste as text)
 
