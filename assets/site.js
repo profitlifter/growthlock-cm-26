@@ -4,7 +4,6 @@
   "use strict";
   var C = window.GL_CONFIG || {};
   var LINKS = C.LINKS || {};
-  var WEBHOOKS = C.WEBHOOKS || {};
   var DEADLINE = new Date(C.DEADLINE || "2026-12-07T23:59:59-06:00").getTime();
   var body = document.body;
   var store = (function () {
@@ -53,24 +52,12 @@
   }
   if (tick()) { var timer = setInterval(function () { if (!tick()) clearInterval(timer); }, 1000); }
 
-  /* ---------- Personalize thank-you pages ---------- */
-  var savedFirst = store.getItem("gl_first_name");
-  document.querySelectorAll("[data-first-name]").forEach(function (el) {
-    if (savedFirst) el.textContent = el.dataset.firstName.replace("{name}", savedFirst);
-  });
-
   /* ---------- Calendar embed (book-call.html) ---------- */
   var cal = document.querySelector("[data-calendar-frame]");
   if (cal && C.CALENDAR_EMBED_URL) {
     cal.src = C.CALENDAR_EMBED_URL;
     body.classList.add("has-calendar");
   }
-
-  /* ---------- Date inputs: no past dates ---------- */
-  document.querySelectorAll('input[type="date"][data-min-today]').forEach(function (el) {
-    var t = new Date(); el.min = t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate());
-  });
-
 
   /* ---------- Exit-intent pop-up (landing page only) ----------
      Opens only when the cursor leaves the browser window through the top edge.
@@ -106,92 +93,4 @@
       if (!e.relatedTarget && e.clientY <= 0) openModal();
     });
   }
-
-  /* ---------- Forms ---------- */
-  function fieldWrap(el) { return el.closest(".field") || el.closest(".check"); }
-
-  function validate(form) {
-    var ok = true, first = null;
-    form.querySelectorAll("input, select, textarea").forEach(function (el) {
-      if (el.closest(".hp") || el.type === "hidden") return;
-      var wrap = fieldWrap(el); if (!wrap) return;
-      var bad = !el.checkValidity();
-      if (!bad && el.type === "tel" && el.value.trim()) {
-        bad = el.value.replace(/\D/g, "").length < 10;
-      }
-      wrap.classList.toggle("invalid", bad);
-      if (bad) { ok = false; if (!first) first = el; }
-    });
-    if (first) first.focus();
-    return ok;
-  }
-
-  function post(url, data) {
-    var params = new URLSearchParams();
-    Object.keys(data).forEach(function (k) { params.append(k, data[k]); });
-    var ctrl = "AbortController" in window ? new AbortController() : null;
-    var to = ctrl ? setTimeout(function () { ctrl.abort(); }, 12000) : null;
-    // "no-cors" + form encoding lets the browser deliver to GHL without a CORS preflight.
-    return fetch(url, {
-      method: "POST", mode: "no-cors", body: params,
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      signal: ctrl ? ctrl.signal : undefined
-    }).finally(function () { if (to) clearTimeout(to); });
-  }
-
-  document.querySelectorAll("form[data-gl-form]").forEach(function (form) {
-    form.setAttribute("novalidate", "");
-    form.addEventListener("input", function (e) {
-      var w = fieldWrap(e.target); if (w && w.classList.contains("invalid") && e.target.checkValidity()) w.classList.remove("invalid");
-    });
-    form.addEventListener("change", function (e) {
-      var w = fieldWrap(e.target); if (w && w.classList.contains("invalid") && e.target.checkValidity()) w.classList.remove("invalid");
-    });
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var errBox = form.querySelector(".form-error");
-      if (errBox) errBox.classList.remove("show");
-      if (!validate(form)) return;
-
-      var key = form.dataset.glForm;
-      var btn = form.querySelector('button[type="submit"]');
-      var label = btn ? btn.textContent : "";
-      var data = {};
-      new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
-
-      // Honeypot: bots fill the hidden field. Pretend success, send nothing.
-      var bot = !!data.company_website; delete data.company_website;
-
-      // Checkboxes: send yes/no
-      form.querySelectorAll('input[type="checkbox"]').forEach(function (cb) { data[cb.name] = cb.checked ? "yes" : "no"; });
-
-      data.tags = form.dataset.tags || "";
-      data.campaign = "CM26 Partner Drive";
-      data.form = key;
-      data.page = window.location.pathname.split("/").pop() || "index.html";
-      data.submitted_at = new Date().toISOString();
-      UTM_KEYS.forEach(function (k) { var v = store.getItem(k); if (v) data[k] = v; });
-
-      store.setItem("gl_first_name", data.first_name || "");
-      store.setItem("gl_email", data.email || "");
-
-      var next = form.dataset.next || "index.html";
-
-      var url = WEBHOOKS[key] || WEBHOOKS["default"];
-      if (bot || !url) {
-        if (!url && !bot) console.info("[GrowthLock] Preview mode: no webhook set for '" + key + "'. Payload:", data);
-        window.location.href = next;
-        return;
-      }
-
-      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
-      post(url, data).then(function () {
-        window.location.href = next;
-      }).catch(function () {
-        if (btn) { btn.disabled = false; btn.textContent = label; }
-        if (errBox) errBox.classList.add("show");
-      });
-    });
-  });
 })();

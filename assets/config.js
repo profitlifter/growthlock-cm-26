@@ -15,16 +15,8 @@ window.GL_CONFIG = {
   // It shows once per visit when someone is about to leave without clicking a sign-up button.
   EXIT_POPUP_ENABLED: true,
 
-  // GHL Inbound Webhook for the consultant call form (book-call.html → tag CM26-CallBooked).
-  // Leave empty to run in preview mode: the form skips posting and goes straight to the thank-you page.
-  WEBHOOKS: {
-    default: "",
-    call:    ""
-  },
-
-  // Optional: GHL consultant calendar embed URL
-  // (e.g. https://api.leadconnectorhq.com/widget/booking/XXXX).
-  // If set, book-call.html shows the live calendar instead of the request form.
+  // GHL consultant calendar embed URL (e.g. https://api.leadconnectorhq.com/widget/booking/XXXX).
+  // book-call.html shows this calendar. Until it is set, the page shows a short notice instead.
   CALENDAR_EMBED_URL: "",
 
   // Links used on the pages.

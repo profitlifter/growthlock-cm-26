@@ -66,7 +66,7 @@ Add a stop condition on L2 to L7 and S2 to S4 for contacts who already hold a Pr
 - **L7s** (Mon Dec 7, 6 PM): GrowthLock: Cyber Monday partner offers end at midnight. Start at 50% as a Premier Partner: https://bf.growthlock.com/?utm_source=ghl&utm_medium=sms&utm_campaign=cm26&utm_content=L7s#offers Reply STOP to opt out
 - **C2** (1 hour before the call): GrowthLock: your partner call starts at {{appointment.start_time}}. Talk soon! Reply STOP to opt out
 
-Send SMS only to contacts with SMS consent. The consultant call form (`book-call.html`) still sends `sms_consent`; contacts who sign up on the partner portal need their own SMS consent captured there.
+Send SMS only to contacts with SMS consent. Contacts who sign up on the partner portal need their SMS consent captured there.
 
 ## Rule
 

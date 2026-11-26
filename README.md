@@ -16,38 +16,26 @@ No build step: plain HTML, CSS and JavaScript. Deploy the whole folder.
 | `join.html` | Free Starter explainer (30% for 90 days). Reached from the exit pop-up and from emails; not linked from the offer cards | Buttons → `https://partner.growthlock.com/auth/sign-up` |
 | `ad-perk.html` | 15% off Nov8rs.io ad campaign explainer. The landing page's Partner Perk card goes here | Buttons → `LINKS.adPerk` (`https://nov8rs.io/growthlock-bfcm`, hosted on the Nov8rs.io site) |
 | `profit-lifter.html` | **Unlinked, `noindex`.** Profit Lifter page: same layout as the landing page, with 35% Free Starter plus Premier Monthly and Yearly at 50%. Profit Lifter sends traffic here (lead capture, L1 email). Never link it from the landing page, menus or any public page | Buttons → `https://partner.growthlock.com/auth/sign-up` |
-| `book-call.html` | Consultant call request, or live GHL calendar | Form → tag `CM26-CallBooked` → `thank-you-call.html` |
-| `thank-you-call.html` | Call confirmation | n/a |
+| `book-call.html` | Consultant call page: shows the GHL booking calendar (`CALENDAR_EMBED_URL`) | Calendar booking happens in GHL |
 | `offer-ended.html` | Shown after the deadline | n/a |
 
-Retired in v2: `premier.html`, `ad-campaign.html`, `thank-you-starter.html`, `thank-you-premier.html`, `thank-you-ad.html`. Enrollment, payment and the contact/tag creation now happen on the partner portal.
+Retired in v2: `premier.html`, `ad-campaign.html`, `thank-you-starter.html`, `thank-you-premier.html`, `thank-you-ad.html`, `thank-you-call.html`. Enrollment, payment and the contact/tag creation now happen on the partner portal.
 
 ## Setup: edit `assets/config.js` only
 
-1. **Sign-up links:** `LINKS.signup` is used by every enroll button. `LINKS.adPerk` is where the Partner Perk page's buttons go (the page on profitlifter.com).
-2. **Call form webhook (optional):** create a GHL workflow with the **Inbound Webhook** trigger and put its URL in `WEBHOOKS.call`. Submit the form once so GHL can map the fields.
-3. **Calendar (optional):** set `CALENDAR_EMBED_URL` to the GHL booking widget URL. `book-call.html` then shows the live calendar instead of the request form.
-4. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html`, only when the cursor leaves the browser window through the top edge. No timer, and it never shows on phones. It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
-
-**Preview mode:** while `WEBHOOKS.call` is empty, the call form skips sending and goes straight to the thank-you page (the payload is logged in the browser console).
-
-## What the call form sends
-
-All fields on the form, plus:
-
-`tags`, `campaign` (CM26 Partner Drive), `form`, `page`, `submitted_at`, `sms_consent` (yes/no), `terms_agree` (yes/no), and any `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` from the visitor's first page.
-
-Forms post as standard form-encoded data in `no-cors` mode, so the browser can't confirm GHL's response. **Test the form once after setup.** Spam: the form has a hidden honeypot field; bot submissions are dropped silently.
+1. **Sign-up links:** `LINKS.signup` is used by every enroll button. `LINKS.adPerk` is where the Partner Perk page's buttons go (the page on nov8rs.io).
+2. **Calendar:** set `CALENDAR_EMBED_URL` to the GHL booking widget URL. `book-call.html` shows it. Until it is set, the page shows a short notice with a sign-up button.
+3. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html`, only when the cursor leaves the browser window through the top edge. No timer, and it never shows on phones. It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
 
 ## Deadline behavior
 
 - Countdowns run to `DEADLINE`.
-- After the deadline, `index.html` and `join.html` redirect to `offer-ended.html` (turn off with `REDIRECT_AFTER_DEADLINE: false`). Promo banners and countdowns hide everywhere.
+- After the deadline, `index.html`, `join.html`, `ad-perk.html` and `profit-lifter.html` redirect to `offer-ended.html` (turn off with `REDIRECT_AFTER_DEADLINE: false`). Promo banners and countdowns hide everywhere.
 
 ## Files
 
 - `assets/config.js`: settings (the only file to edit)
-- `assets/site.js`: call form, countdown, deadline, links, exit-intent pop-up
+- `assets/site.js`: countdown, deadline, links, calendar embed, exit-intent pop-up
 - `assets/styles.css`: all styles; brand colors are under `BRAND TOKENS` (green `#05E432` matches the logo)
 - `assets/growthlock-logo.png`: logo
 
