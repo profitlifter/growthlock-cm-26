@@ -30,7 +30,7 @@ window.GL_CONFIG = {
   // Links used on the pages.
   LINKS: {
     signup:         "https://partner.growthlock.com/auth/sign-up",  // every sign-up / enroll button
-    adPerk:         "http://profitlifter.com/growthlock-bfcm",      // 15% off ad campaign landing page
+    adPerk:         "http://nov8rs.io/growthlock-bfcm",      // 15% off ad campaign landing page
     standardSignup: "https://growthlock.com/partner",               // used on offer-ended.html
     legal:          "https://growthlock.com/legal-disclaimer",
     privacy:        "https://growthlock.com/privacy-policy",
