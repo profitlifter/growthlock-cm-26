@@ -72,10 +72,12 @@
   });
 
 
-  /* ---------- Exit-intent pop-up (landing page only) ---------- */
+  /* ---------- Exit-intent pop-up (landing page only) ----------
+     Opens only when the cursor leaves the browser window through the top edge.
+     No timer. Once per visit. Skipped after a sign-up click. */
   var modal = document.getElementById("exit-modal");
   if (modal && C.EXIT_POPUP_ENABLED !== false && !ended) {
-    var shown = false, armed = false, lastFocus = null;
+    var shown = false, lastFocus = null;
     try { shown = sessionStorage.getItem("gl_exit_shown") === "1"; } catch (e) {}
 
     var closeModal = function () {
@@ -83,7 +85,7 @@
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
     var openModal = function () {
-      if (shown || !armed) return;
+      if (shown) return;
       shown = true;
       try { sessionStorage.setItem("gl_exit_shown", "1"); } catch (e) {}
       lastFocus = document.activeElement;
@@ -99,20 +101,10 @@
     modal.addEventListener("click", function (e) { if (e.target === modal || e.target.closest("[data-exit-close]")) closeModal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeModal(); });
 
-    setTimeout(function () { armed = true; }, 4000);
-
-    // Desktop: cursor leaves through the top of the window.
+    // Cursor leaves the window through the top (toward tabs, address bar or close button).
     document.addEventListener("mouseout", function (e) {
       if (!e.relatedTarget && e.clientY <= 0) openModal();
     });
-    // Mobile: fast scroll back up after reading a good part of the page.
-    var lastY = window.scrollY, lastT = Date.now(), maxY = 0;
-    window.addEventListener("scroll", function () {
-      var y = window.scrollY, t = Date.now(); maxY = Math.max(maxY, y);
-      var vel = (lastY - y) / Math.max(t - lastT, 1);
-      if (matchMedia("(pointer: coarse)").matches && maxY > 900 && vel > 1.2 && y > 100) openModal();
-      lastY = y; lastT = t;
-    }, { passive: true });
   }
 
   /* ---------- Forms ---------- */

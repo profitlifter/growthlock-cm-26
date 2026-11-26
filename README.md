@@ -27,7 +27,7 @@ Retired in v2: `premier.html`, `ad-campaign.html`, `thank-you-starter.html`, `th
 1. **Sign-up links:** `LINKS.signup` is used by every enroll button. `LINKS.adPerk` is where the Partner Perk page's buttons go (the page on profitlifter.com).
 2. **Call form webhook (optional):** create a GHL workflow with the **Inbound Webhook** trigger and put its URL in `WEBHOOKS.call`. Submit the form once so GHL can map the fields.
 3. **Calendar (optional):** set `CALENDAR_EMBED_URL` to the GHL booking widget URL. `book-call.html` then shows the live calendar instead of the request form.
-4. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html` (desktop: cursor leaves the top of the window; mobile: fast scroll back up). It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
+4. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html`, only when the cursor leaves the browser window through the top edge. No timer, and it never shows on phones. It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
 
 **Preview mode:** while `WEBHOOKS.call` is empty, the call form skips sending and goes straight to the thank-you page (the payload is logged in the browser console).
 
@@ -60,3 +60,7 @@ Forms post as standard form-encoded data in `no-cors` mode, so the browser can't
 
 - The fee-deferral offer is sales-team only. It must never appear on these pages, in emails or in any written promo.
 - Keep the footer disclaimer on every page.
+
+## Analytics
+
+Google Tag Manager container `GTM-NJK5N3V2` is installed on every page (head snippet plus the noscript tag after `<body>`). Add GA4 and any other tags inside GTM.
