@@ -37,8 +37,8 @@
 | P1Y | Premier onboarding (Yearly) | Immediately | Welcome, Premier Partner | Your 50% rate is locked for 6 months. | Onboarding calendar |
 | P2 | Premier onboarding | +2 days | Your 15% ad campaign perk | More leads for your own business, 15% off. | ad-perk.html |
 | C1 | Call booked | Immediately | Your partner call is booked | Here's what to have ready. | Landing page offers |
-| D75 | Rate reminders (Starter + Premier Monthly) | Day 75 from sign-up | 15 days left at your top rate | Get your deals in before your window ends. | Partner portal |
-| D90 | Rate reminders (Starter + Premier Monthly) | Day 90 from sign-up (Monthly: 3-month mark) | Your top-rate window is up: here's your tier | Your rate now follows your deal volume. | book-call.html |
+| D75 | Rate reminders (Starter + Premier Monthly) | Day 75 from sign-up | 15 days left at your Cyber Monday rate | Get your deals in before your window ends. | Partner portal |
+| D90 | Rate reminders (Starter + Premier Monthly) | Day 90 from sign-up (Monthly: 3-month mark) | Your Cyber Monday rate window is up | Your rate now follows your deal volume. | book-call.html |
 | D165 | Rate reminders (Premier Yearly) | Day 165 from sign-up | 15 days left at your 50% rate | Get your deals in before your 6 months are up. | Partner portal |
 | D180 | Rate reminders (Premier Yearly) | Day 180 from sign-up (6-month mark) | Your 50% window is up: here's your tier | Your rate now follows your deal volume. | book-call.html |
 | M1 | Missed deadline | Tue Dec 8, 10 AM | The Cyber Monday rates closed, but the door's open | You can still join free today. | growthlock.com/partner |
