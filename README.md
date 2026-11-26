@@ -24,7 +24,7 @@ Retired in v2: `premier.html`, `ad-campaign.html`, `thank-you-starter.html`, `th
 ## Setup: edit `assets/config.js` only
 
 1. **Sign-up links:** `LINKS.signup` is used by every enroll button. `LINKS.adPerk` is where the Partner Perk page's buttons go (the page on nov8rs.io).
-2. **Calendar:** set `CALENDAR_EMBED_URL` to the GHL booking widget URL. `book-call.html` shows it. Until it is set, the page shows a short notice with a sign-up button.
+2. **Calendar:** `CALENDAR_EMBED_URL` is the GHL booking widget (`api.growthlock.com/widget/booking/...`). `book-call.html` shows it and loads GHL's `form_embed.js` to auto-size it. If the URL is emptied, the page shows a short notice with a sign-up button.
 3. **Exit pop-up:** `EXIT_POPUP_ENABLED: true` shows it once per visit on `index.html`, only when the cursor leaves the browser window through the top edge. No timer, and it never shows on phones. It is skipped if the visitor already clicked a sign-up button. Set to `false` to turn it off.
 
 ## Deadline behavior

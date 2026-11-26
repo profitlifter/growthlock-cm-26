@@ -55,8 +55,13 @@
   /* ---------- Calendar embed (book-call.html) ---------- */
   var cal = document.querySelector("[data-calendar-frame]");
   if (cal && C.CALENDAR_EMBED_URL) {
+    // GHL's form_embed.js finds the iframe by an id of "<widgetId>_<timestamp>" and auto-sizes it.
+    cal.id = C.CALENDAR_EMBED_URL.split("/").pop().split("?")[0] + "_" + Date.now();
     cal.src = C.CALENDAR_EMBED_URL;
     body.classList.add("has-calendar");
+    var s = document.createElement("script");
+    s.src = "https://api.growthlock.com/js/form_embed.js"; s.async = true;
+    document.body.appendChild(s);
   }
 
   /* ---------- Exit-intent pop-up (landing page only) ----------

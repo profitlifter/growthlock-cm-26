@@ -16,8 +16,8 @@ window.GL_CONFIG = {
   EXIT_POPUP_ENABLED: true,
 
   // GHL consultant calendar embed URL (e.g. https://api.leadconnectorhq.com/widget/booking/XXXX).
-  // book-call.html shows this calendar. Until it is set, the page shows a short notice instead.
-  CALENDAR_EMBED_URL: "",
+  // book-call.html shows this calendar. If it is ever emptied, the page shows a short notice instead.
+  CALENDAR_EMBED_URL: "https://api.growthlock.com/widget/booking/l6ilq2P8ceikfS82W65t",
 
   // Links used on the pages.
   LINKS: {
